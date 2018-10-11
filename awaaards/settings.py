@@ -65,7 +65,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-
+    'rest_framework.authtoken',
     'rest_framework',
     'projects',
     'bootstrap4',
@@ -150,6 +150,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
