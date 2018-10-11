@@ -3,6 +3,7 @@ from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
+from django.http import JsonResponse
 # Create your views here.
 
 @login_required(login_url='/accounts/login/')
