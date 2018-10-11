@@ -7,7 +7,59 @@
 <br>
 <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+<div class="container-fluid">
 
+  <p><a href="{% url 'add_profile' %}" class="btn btn-info">+ profile</a></p>
+  <p><a href="{% url 'upload' %}" class="btn btn-info">+ photo</a>
+
+    <div class="row">
+    <div class="col-1"></div>
+    <div class="col-9" style="max-width:40rem; margin-top:20px;">
+      {% for project in projects %}
+
+      <div class="card mr-0" style="max-width:40rem; margin-top:10px;">
+        <div class="card-header"><img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" style="height:40px;margin-top:5px;margin-bottom:5px;">
+          <a href="/profile/{{user.id}}">
+            <label>{{project.posted_by}}</label></a>
+        </div>
+        <img src="{{project.insta_project.url}}" class="card-img-top" data-target="#extraModal{{project.id}}" data-toggle="modal">
+        <div class="card-body">
+          <div class="header">
+            <a id="like" href="{% url 'like' operation='like' pk=project.id%}"><i class="far fa-heart" style="margin-right:10px;color:black;"></i></a>
+            <a href="#sema" style="color:black;"><i class="far fa-review"></i></a>
+            <a href="/upload"><i class="far fa-arrow-alt-circle-up" style="margin-right:15px;color:black;"></i></a>
+
+          </div>
+          <div class="like-section">
+            {% if project.likes >= 1 %}
+            <label>{{project.likes}} Likes</label>
+            {% endif %}
+            <p><strong>{{project.posted_by}} </strong>{{project.caption}}</p>
+            {% for review in reviews %}
+            {% if project.id == review.project.id %}
+            <p><strong>{{review.poster}}</strong> {{review.review}}</p>
+            {% endif %}
+            {%endfor%}
+            {{form.media}}
+
+            <form action="{%url 'review' pk=project.id%}" method="post" enctype="multipart/form-data" id="sema">
+              {%csrf_token%}
+
+              {% bootstrap_form form%}
+
+            </form>
+
+            {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+            {% bootstrap_javascript %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
 
 
 
