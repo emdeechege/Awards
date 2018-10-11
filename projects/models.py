@@ -27,7 +27,7 @@ class Project(models.Model):
 
     @classmethod
     def get_projects(cls):
-        projects = Projects.objects.all()
+        projects = Project.objects.all()
         return projects
 
 class Reviews(models.Model):
@@ -49,3 +49,8 @@ class Reviews(models.Model):
     usability = models.IntegerField(choices=RATING_CHOICES)
     content = models.IntegerField(choices=RATING_CHOICES)
     comment = models.CharField(max_length=200)
+
+    @classmethod
+    def get_reviews(cls):
+        reviews = Reviews.objects.all()
+        return reviews
