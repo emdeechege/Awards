@@ -6,13 +6,15 @@
 <br>
 <br>
 <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
+<div class="container">
+  {% for project in projects %}
+  <div class="row">
+    <img class="img-fluid" src="{{project.project_image.url}}" style="height:100vh;">
+  </div>
+  {%endfor%}
+</div>
 <div class="container-fluid">
-
-  <p><a href="{% url 'add_profile' %}" class="btn btn-info">+ profile</a></p>
-  <p><a href="{% url 'upload' %}" class="btn btn-info">+ photo</a>
-
-    <div class="row">
+  <div class="row">
     <div class="col-1"></div>
     <div class="col-9" style="max-width:40rem; margin-top:20px;">
       {% for project in projects %}
@@ -59,4 +61,3 @@
       {% endfor %}
     </div>
     {% endblock %}
-    
