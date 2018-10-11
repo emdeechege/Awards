@@ -22,19 +22,17 @@
           <a href="/profile/{{user.id}}">
             <label>{{project.posted_by}}</label></a>
         </div>
-        <img src="{{project.insta_project.url}}" class="card-img-top" data-target="#extraModal{{project.id}}" data-toggle="modal">
+        <img src="{{project.project_image.url}}" class="card-img-top">
         <div class="card-body">
           <div class="header">
-            <a id="like" href="{% url 'like' operation='like' pk=project.id%}"><i class="far fa-heart" style="margin-right:10px;color:black;"></i></a>
+
             <a href="#sema" style="color:black;"><i class="far fa-review"></i></a>
             <a href="/upload"><i class="far fa-arrow-alt-circle-up" style="margin-right:15px;color:black;"></i></a>
 
           </div>
           <div class="like-section">
-            {% if project.likes >= 1 %}
-            <label>{{project.likes}} Likes</label>
-            {% endif %}
-            <p><strong>{{project.posted_by}} </strong>{{project.caption}}</p>
+
+            <p><strong>{{project.posted_by}} </strong>{{project.description}}</p>
             {% for review in reviews %}
             {% if project.id == review.project.id %}
             <p><strong>{{review.poster}}</strong> {{review.review}}</p>

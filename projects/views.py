@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .models import *
+from .forms import *
 # Create your views here.
 
 @login_required(login_url='/accounts/login/')
@@ -66,16 +68,16 @@ def update_project(request):
 
 @login_required(login_url='/accounts/login/')
 def add_review(request,pk):
-    image = get_object_or_404(Image, pk=pk)
+    project = get_object_or_404(Project, pk=pk)
     current_user = request.user
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.image = image
+            comment.project = project
             comment.poster = current_user
             comment.save()
             return redirect('home')
     else:
         form = ReviewForm()
-        return render(request,'creview.html',{"user":current_user,"review_form":form})
+        return render(request,'review.html',{"user":current_user,"review_form":form})
