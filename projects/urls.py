@@ -5,7 +5,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.home,name='home'),
-    
+    url(r'^profile/(\d+)', views.profile, name='profile'),
+    url(r'^new/profile$', views.add_profile, name='add_profile'),
+    url(r'^upload/', views.update_project, name='upload'),
+    url(r'^review/(?P<pk>\d+)',views.add_review,name='review'),
 
 ]
 

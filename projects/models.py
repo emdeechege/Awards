@@ -45,4 +45,7 @@ class Reviews(models.Model):
     )
     project = models.ForeignKey(Project)
     juror = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
-    rating = models.IntegerField(choices=RATING_CHOICES)
+    design = models.IntegerField(choices=RATING_CHOICES)
+    usability = models.IntegerField(choices=RATING_CHOICES)
+    content = models.IntegerField(choices=RATING_CHOICES)
+    comment = models.CharField(max_length=200)
