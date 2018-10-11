@@ -4,11 +4,9 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
-    profile_photo = models.ImageField(upload_)
-    to = 'profiles/',null=True)
+    profile_photo = models.ImageField(upload_to='profiles/',null=True)
     bio = models.CharField(max_length=240, null=True)
-    phone = models.PositiveIntegerField(default=0,max_length=10)
-    project = models.ForeignKey(Projects,on_delete=models.CASCADE,null=True)
+    phone = models.PositiveIntegerField(default=0)
 
     def save_profile(self):
         self.save()
@@ -19,7 +17,7 @@ class Profile(models.Model):
 
         return profile
 
-class Projects(models.Model):
+class Project(models.Model):
     posted_by = models.ForeignKey(User, null=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True)
     title = models.CharField(max_length=100, null=True)
@@ -45,8 +43,6 @@ class Reviews(models.Model):
         (9, '9'),
         (10, '10'),
     )
-    project = models.ForeignKey(Projects)
+    project = models.ForeignKey(Project)
     juror = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     rating = models.IntegerField(choices=RATING_CHOICES)
-
-    
