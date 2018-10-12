@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^$', views.home,name='home'),
     url(r'^profile/(\d+)', views.profile, name='profile'),
     url(r'^new/profile$', views.add_profile, name='add_profile'),
+    url(r'^search/', views.search_results, name='search_results'),
     url(r'^upload/', views.update_project, name='upload'),
     url(r'^review/(?P<pk>\d+)',views.add_review,name='review'),
     url(r'^api/profile/$', views.ProfileList.as_view()),
