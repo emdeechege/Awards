@@ -81,7 +81,7 @@ def add_review(request,pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.project = project
-            comment.poster = current_user
+            comment.juror = current_user
             comment.save()
             return redirect('home')
     else:

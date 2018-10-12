@@ -37,7 +37,7 @@
             <p><strong>{{project.posted_by}} </strong>{{project.description}}</p>
             {% for review in reviews %}
             {% if project.id == review.project.id %}
-            <p><strong>{{review.poster}}</strong> {{review.comment}} {{review.usability}} {{review.content}}{{review.design}}</p>
+            <p><strong>{{review.juror}}</strong> {{review.comment}} {{review.usability}} {{review.content}}{{review.design}}</p>
             {% endif %}
             {%endfor%}
             {{form.media}}
