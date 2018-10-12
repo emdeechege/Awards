@@ -23,6 +23,7 @@
         <div class="card-header"><img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" style="height:40px;margin-top:5px;margin-bottom:5px;">
           <a href="/profile/{{user.id}}">
             <label>{{project.posted_by}}</label></a>
+            <h5>{{ project.reviews.count }}, {{ project.design_rating | floatformat }}, {{ project.usability_rating | floatformat }}, {{ project.content_rating | floatformat }}</h5>
         </div>
         <img src="{{project.project_image.url}}" class="card-img-top">
         <div class="card-body">

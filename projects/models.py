@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.db.models import Avg
+import numpy as np
 # Create your models here.
 
 class Profile(models.Model):
@@ -42,6 +43,18 @@ class Project(models.Model):
     def get_projects(cls):
         projects = Project.objects.all()
         return projects
+
+    def design_rating(self):
+        all_designs =list( map(lambda x: x.design, self.reviews.all()))
+        return np.mean(all_designs)
+
+    def usability_rating(self):
+        all_usability =list( map(lambda x: x.usability, self.reviews.all()))
+        return np.mean(all_usability)
+
+    def content_rating(self):
+        all_content =list( map(lambda x: x.content, self.reviews.all()))
+        return np.mean(all_content)
 
 class Reviews(models.Model):
     RATING_CHOICES = (
