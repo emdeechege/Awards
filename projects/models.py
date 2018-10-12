@@ -75,8 +75,7 @@ class Reviews(models.Model):
     usability = models.IntegerField(choices=RATING_CHOICES,null=True)
     content = models.IntegerField(choices=RATING_CHOICES,null=True)
     comment = models.CharField(max_length=200,null=True)
-    average = models.PositiveIntegerField(default=0)
-
+    
     @classmethod
     def get_reviews(cls):
         reviews = Reviews.objects.all()
