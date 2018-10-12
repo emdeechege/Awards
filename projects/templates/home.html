@@ -23,15 +23,12 @@
         <div class="card-header"><img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" style="height:40px;margin-top:5px;margin-bottom:5px;">
           <a href="/profile/{{user.id}}">
             <label>{{project.posted_by}}</label></a>
-            <h5>{{ project.reviews.count }}, {{ project.design_rating | floatformat }}, {{ project.usability_rating | floatformat }}, {{ project.content_rating | floatformat }}</h5>
+
         </div>
         <img src="{{project.project_image.url}}" class="card-img-top">
         <div class="card-body">
           <div class="header">
-
-            <a href="#sema" style="color:black;"><i class="far fa-review"></i></a>
-            <a href="/upload"><i class="far fa-arrow-alt-circle-up" style="margin-right:15px;color:black;"></i></a>
-
+            <h5>{{ project.reviews.count }}, {{ project.design_rating | floatformat }}, {{ project.usability_rating | floatformat }}, {{ project.content_rating | floatformat }}</h5>
           </div>
           <div class="like-section">
 
@@ -46,8 +43,11 @@
 
             <form action="{%url 'review' pk=project.id%}" method="post" enctype="multipart/form-data" id="sema">
               {%csrf_token%}
+              <table>
+                {{ form.as_table }}
+              </table>
+              <button type="submit">Vote</button>
 
-              {% bootstrap_form form%}
 
             </form>
 
