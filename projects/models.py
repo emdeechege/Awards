@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.db.models import Avg
 # Create your models here.
 
 class Profile(models.Model):
@@ -61,3 +62,8 @@ class Reviews(models.Model):
     def get_reviews(cls):
         reviews = Reviews.objects.all()
         return reviews
+
+    @classmethod
+    def get_average(cls):
+        usability =Reviews.objects.all().aggregate(Avg('usability'))
+        return usability

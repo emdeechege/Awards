@@ -28,20 +28,20 @@
             </li>
             {% else %}
             <li class="list-inline-item">
-              <a href="#" class="btn btn-primary">Follow</a>
+              <a href="#" class="btn btn-primary"></a>
             </li>
             {% endif %}
           </ul>
 
           <ul class="list-inline">
             <li class="list-inline-item">
-              <span class="font-weight-bold">{{images|length}}</span> Posts
+              <span class="font-weight-bold">{{projects|length}}</span> Project
             </li>
             <li class="list-inline-item">
-              <span class="font-weight-bold">{{profile.user.follow.all | length}}</span> Followers
+              <span class="font-weight-bold">{{profile.user.follow.all | length}}</span> Ratings
             </li>
             <li class="list-inline-item">
-              <span class="font-weight-bold">{{profile.user.c_user.all | length}}</span> Following
+              <span class="font-weight-bold">{{profile.user.c_user.all | length}}</span> Projects rated
             </li>
           </ul>
           <p class="font3">{{profile.bio}}</p>
@@ -55,9 +55,9 @@
   <hr>
   <div class="container">
     <div class="row">
-      {% for image in images %}
+      {% for project in projects %}
       <div class="col-md-4">
-        <img src="{{image.profile_photo.url}}" alt="Image" style="height:300px;width:300px;">
+        <img src="{{project.project_image.url}}" alt="Image" style="height:300px;width:300px;">
       </div>
       {% empty %}
       <div class="col-md-12">
