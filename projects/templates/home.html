@@ -38,6 +38,7 @@
             {% for review in reviews %}
             {% if project.id == review.project.id %}
             <p><strong>{{review.juror}}</strong> {{review.comment}} {{review.usability}} {{review.content}}{{review.design}}</p>
+            <p>{{review.average}}</p>
             {% endif %}
             {%endfor%}
             {{form.media}}

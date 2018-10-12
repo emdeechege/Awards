@@ -15,4 +15,4 @@ class UploadForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Reviews
-        exclude =['project','juror']
+        exclude =['project','juror','average']

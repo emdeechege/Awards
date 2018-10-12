@@ -21,15 +21,11 @@ def home(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            design = form.cleaned_data['design']
-            usability = form.cleaned_data['usability']
-            content = form.cleaned_data['content']
+
             review = form.save(commit=False)
             review.project = project
             review.juror = current_user
-            review.design = design
-            review.usability = usability
-            review.content = content
+            review.average = (review.content + review.design + review.usability)/3
             review.save()
         return redirect('home')
 
