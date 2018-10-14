@@ -56,9 +56,11 @@
   <div class="container">
     <div class="row">
       {% for project in projects %}
-      <div class="col-md-4">
-        <img src="{{project.project_image.url}}" alt="Image" style="height:300px;width:300px;">
-      </div>
+      <div class="card-columns">
+
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{project.project_image.url}}" size="">
+    </div>
       {% empty %}
       <div class="col-md-12">
         <h2>Profile has no projects</h2>
