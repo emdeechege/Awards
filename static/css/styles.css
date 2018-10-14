@@ -315,14 +315,10 @@ input[type=text]:focus {
     width: 100%;
 }
 
-.centered {
-
-	color: green;
+#bottom {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+    bottom: 8px;
+    left: 16px;
 }
 
 .button {
@@ -340,4 +336,56 @@ input[type=text]:focus {
 
 .button:hover {
     background-color: #4ef9e2;
+}
+
+.one {
+    background-color: #f9704e;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.two {
+    background-color: #14f3ff;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.three {
+    background-color: #96f97a;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.four {
+    background-color: #f99d4e;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
 }

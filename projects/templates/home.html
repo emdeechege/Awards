@@ -20,20 +20,30 @@
       {% for project in projects %}
 
       <div class="card mr-0" style="max-width:70rem; margin-top:10px;">
-        <div class="card-header">
-          <a href="/profile/{{user.id}}">
-            <img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" style="height:40px;margin-top:5px;margin-bottom:5px;"></a>
 
-            <label>{{project.title}}</label>
-
-        </div>
         <img src="{{project.project_image.url}}" class="card-img-top">
         <div class="card-body">
-          <div class="header">
-            <button class="button"><a href="{{ project.project_link }}" target="_blank">view site</a></button>
-            <h5>{{ project.reviews.count }}, {{ project.design_rating | floatformat }}, {{ project.usability_rating | floatformat }}, {{ project.content_rating | floatformat }}</h5>
-            <p><strong>{{project.posted_by}} </strong>{{project.description}}</p>
+
+          <div class="media">
+            <div class="media-left media-top">
+              <a href="/profile/{{user.id}}">
+                <img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" class="media-object" style="height: 100px;
+width: 100px;">
+                <button class="button"><a href="{{ project.project_link }}" target="_blank">view site</a></button>
+              </a>
+
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading" style="padding:10px; margin:5px">{{ project.title }}</h4>
+              <h6 class="media-content" style="padding:10px; margin:5px">{{ project.description }}</h6>
+              <button class=" one d-flex justify-content-end" style="float:right; padding:10px; margin:5px">Votes {{ project.reviews.count }}</button>
+              <button class=" two d-flex justify-content-end" style="float:right; padding:10px; margin:5px">design {{ project.design_rating }}</button>
+              <button class=" three d-flex justify-content-end" style="float:right; padding:10px; margin:5px">usability {{ project.usability_rating }}</button>
+              <button class="four d-flex justify-content-end" style="float:right; padding:10px; margin:5px">content {{ project.content_rating }}</button>
+            </div>
           </div>
+          <hr>
+
           <div class="review-section">
 
             {% for review in reviews %}
