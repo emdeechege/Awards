@@ -16,10 +16,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-9" style="max-width:40rem; margin-top:20px;">
+    <div class="col-11">
       {% for project in projects %}
-
-      <div class="card mr-0" style="max-width:40rem; margin-top:10px;">
+<div id="accordion" role="tablist">
+      <div class="card mr-0" style="max-width:70rem; margin-top:10px;">
         <div class="card-header"><img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" style="height:40px;margin-top:5px;margin-bottom:5px;">
           <a href="/profile/{{user.id}}">
             <label>{{project.posted_by}}</label></a>
@@ -30,13 +30,13 @@
           <div class="header">
             <h5>{{ project.reviews.count }}, {{ project.design_rating | floatformat }}, {{ project.usability_rating | floatformat }}, {{ project.content_rating | floatformat }}</h5>
           </div>
-          <div class="like-section">
+          <div class="review-section">
 
             <p><strong>{{project.posted_by}} </strong>{{project.description}}</p>
             {% for review in reviews %}
             {% if project.id == review.project.id %}
-            <p><strong>{{review.juror}}</strong> {{review.comment}} {{review.usability}} {{review.content}}{{review.design}}</p>
-            <p>{{review.average}}</p>
+            <p><strong>{{review.juror}}</strong> {{review.comment}} ,{{review.usability}}, {{review.content}} ,{{review.design}}</p>
+            <p>{{ project.average_score | floatformat }}</p>
             {% endif %}
             {%endfor%}
             {{form.media}}
@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-
+</div>
       {% endfor %}
     </div>
     {% endblock %}

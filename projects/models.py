@@ -56,6 +56,7 @@ class Project(models.Model):
         all_content =list( map(lambda x: x.content, self.reviews.all()))
         return np.mean(all_content)
 
+
 class Reviews(models.Model):
     RATING_CHOICES = (
         (1, '1'),
