@@ -16,6 +16,7 @@
   {% block styles %}
   {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/try.scss' %}">
   {% endblock %}
 
 </head>
@@ -23,12 +24,11 @@
 <body>
   {% include "navbar.html" %}
   {% block content %}{%endblock%}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="{% static 'js/script.js' %}">
 
-  </script>
+
+  <script src="{% static 'js/script.js' %}"></script>
   {% bootstrap_javascript %}
   {% endblock %}
 </body>

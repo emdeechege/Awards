@@ -18,21 +18,24 @@
     <div class="col-1"></div>
     <div class="col-11">
       {% for project in projects %}
-<div id="accordion" role="tablist">
+
       <div class="card mr-0" style="max-width:70rem; margin-top:10px;">
-        <div class="card-header"><img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" style="height:40px;margin-top:5px;margin-bottom:5px;">
+        <div class="card-header">
           <a href="/profile/{{user.id}}">
-            <label>{{project.posted_by}}</label></a>
+            <img class="img-fluid rounded-circle" src="{{project.profile.profile_photo.url}}" style="height:40px;margin-top:5px;margin-bottom:5px;"></a>
+
+            <label>{{project.title}}</label>
 
         </div>
         <img src="{{project.project_image.url}}" class="card-img-top">
         <div class="card-body">
           <div class="header">
+            <button class="button"><a href="{{ project.project_link }}" target="_blank">view site</a></button>
             <h5>{{ project.reviews.count }}, {{ project.design_rating | floatformat }}, {{ project.usability_rating | floatformat }}, {{ project.content_rating | floatformat }}</h5>
+            <p><strong>{{project.posted_by}} </strong>{{project.description}}</p>
           </div>
           <div class="review-section">
 
-            <p><strong>{{project.posted_by}} </strong>{{project.description}}</p>
             {% for review in reviews %}
             {% if project.id == review.project.id %}
             <p><strong>{{review.juror}}</strong> {{review.comment}} ,{{review.usability}}, {{review.content}} ,{{review.design}}</p>
@@ -59,7 +62,7 @@
           </div>
         </div>
       </div>
-</div>
+
       {% endfor %}
     </div>
     {% endblock %}

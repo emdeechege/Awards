@@ -1,16 +1,18 @@
-body {
-    position: relative;
-    overflow-x: hidden;
+body{
+  background-color: grey;
 }
-body,
-html { height: 100%;}
-.nav .open > a,
-.nav .open > a:hover,
-.nav .open > a:focus {background-color: transparent;}
 
-/*-------------------------------*/
-/*           Wrappers            */
-/*-------------------------------*/
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 3;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
 
 #wrapper {
     padding-left: 0;
@@ -311,4 +313,31 @@ input[type=text] {
 
 input[type=text]:focus {
     width: 100%;
+}
+
+.centered {
+
+	color: green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.button {
+    background-color: #d5f94f;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.button:hover {
+    background-color: #4ef9e2;
 }
