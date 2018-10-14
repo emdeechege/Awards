@@ -21,4 +21,4 @@ class ReviewForm(forms.ModelForm):
         usability = forms.IntegerField(label="Usability Rating")
         content = forms.IntegerField(label="Content Rating")
         widget=forms.Select(choices=INTEGER_CHOICES)
-        exclude =['project','juror','comment']
+        exclude =['project','juror']
