@@ -1,6 +1,6 @@
 # Project Awards
 
-![AWARDS](/static/img/awards.png)
+![AWARDS](/static/img/md.png)
 
 ## Built By [Tom Chege](https://github.com/emdeechege/)
 
