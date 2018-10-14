@@ -41,7 +41,7 @@ width: 100px;">
             {% for review in reviews %}
             {% if project.id == review.project.id %}
 
-            <p><strong>{{review.juror}}</strong> {{review.comment}} ,{{review.usability}}, {{review.content}} ,{{review.design}}</p>
+            <p><strong>{{review.juror}}</strong> {{review.comment}} [usability: {{review.usability}}, content: {{review.content}} , design: {{review.design}}]</p>
             <p>{{ project.average_score | floatformat }}</p>
             {% endif %}
 
