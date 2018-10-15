@@ -11,7 +11,7 @@ from rest_framework import status
 from .permissions import IsAdminOrReadOnly
 # Create your views here.
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def home(request):
     projects = Project.get_projects()
     reviews = Reviews.get_reviews()
@@ -38,7 +38,7 @@ def home(request):
 
     return render(request,"home.html",{"projects":projects, "reviews":reviews,"form": form,"profile":profile})
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def profile(request,profile_id):
 
     profile = Profile.objects.get(pk = profile_id)
