@@ -118,6 +118,16 @@ def search_results(request):
         message = "You haven't searched for any user"
         return render(request,'search.html',{"message":message})
 
+@login_required(login_url='/accounts/login/')
+def all(request, pk):
+    profile = Profile.objects.get(pk=pk)
+    projects = Project.objects.all().filter(posted_by_id=pk)
+    content = {
+        "profile": profile,
+        'projects': projects,
+    }
+    return render(request, 'profile.html', content)
+
 class ProfileList(APIView):
 
     def get(self, request, format=None):

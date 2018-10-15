@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^upload/', views.update_project, name='upload'),
     url(r'^review/(?P<pk>\d+)',views.add_review,name='review'),
+    url(r'^all/(?P<pk>\d+)', views.all, name='all'),
     url(r'^api/profile/$', views.ProfileList.as_view()),
     url(r'^api/project/$', views.ProjectList.as_view()),
     url(r'api/profile/profile-id/(?P<pk>[0-9]+)/$',views.ProfileDescription.as_view()),
