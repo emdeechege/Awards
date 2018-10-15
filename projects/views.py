@@ -103,19 +103,16 @@ def add_review(request,pk):
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
-    current_user = request.user
-    profile = Profile.get_profile()
-    if 'username' in request.GET and request.GET["username"]:
-        search_term = request.GET.get("username")
-        searched_name = Profile.find_profile(search_term)
+
+    if 'title' in request.GET and request.GET["title"]:
+        search_term = request.GET.get("title")
+        searched_project = Project.find_project(search_term)
         message = search_term
 
         return render(request,'search.html',{"message":message,
-                                             "profiles":profile,
-                                             "user":current_user,
-                                             "username":searched_name})
+                                             "searched_project":searched_project})
     else:
-        message = "You haven't searched for any user"
+        message = "You haven't searched for any project"
         return render(request,'search.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')

@@ -7,18 +7,21 @@
     <div class="row mt-5"></div>
     <div class="row mt-5"></div>
     <div class="row mt-5">
-        {% if username %}
-        <h2>{{username | length}} user found</h2>
+        {% if searched_project %}
+        <h2>{{searched_project | length}} projects found</h2>
         {% else %}
-        <h2>Found 0 users for the searched name {{message | title}}</h2>
+        <h2>Found 0 projects {{message | title}}</h2>
         {% endif %}
     </div>
     <div class="row">
-        {% if username %}
-            {% for user in username %}
+        {% if searched_project %}
+            {% for project in searched_project %}
 
             <div class="card border-secondary">
-              <img class="card-img-top" class="img-responsive" src="{{user.profile_photo.url}}" size="100px200">
+              <div class="card-header">
+                <h2><a href="{{ project.project_link }}" target="_blank">{{project.title}}</a></h2>
+              </div>
+              <img class="card-img-top" class="img-responsive" src="{{project.project_image.url}}" size="100px200">
             </div>
             <div class="card-body">
             {% endfor %}
