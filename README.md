@@ -16,7 +16,7 @@ Users would like to:
 * Click on links to visit a live site.
 * Search for users.
 * Must be signed up to vote
-* see averages for the three grading criterias
+* See averages for the three grading criterias
 * Grade Projects.
 
 
@@ -39,7 +39,7 @@ Admin should:
 | To add an project  | **Through Admin dashboard and homepage** | Click on add and upload respectively|
 | To edit project  | **Through Admin dashboard** | Redirected to the  project form details and editing happens|
 | To delete an project  | **Through Admin dashboard** | click on project object and confirm by delete button|
-| To search  | **Enter text in search bar** | Users can search by username|
+| To search projects by title | **Enter text in search bar** | Users can search by Project Title|
 | Comment on projects | **Add comments below respective project** | Users can add comments on any project|
 | Vote on projects | **vote** | Users can review projects they like and comment|
 
